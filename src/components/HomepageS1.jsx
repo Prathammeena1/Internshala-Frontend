@@ -8,6 +8,7 @@ const HomepageS1 = () => {
         <span>Make your dream career a reality</span>
         <img className="w-[20vw]" src="/images/underline.png" alt="" />
       </h1>
+      
       <h2 className="text-3xl font-bold text-darkGray text-center text-gray-600 mb-8">
         Trending on Internshala 🔥
       </h2>
