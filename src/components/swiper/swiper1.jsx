@@ -7,7 +7,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
-import './styles.css';
+import '../../index.css';
 
 export default function Swiper1() {
   const [swiperRef, setSwiperRef] = useState(null);

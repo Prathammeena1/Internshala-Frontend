@@ -1,5 +1,6 @@
 import React from "react";
 import Poster from "./Poster";
+import Swiper1 from "./swiper/swiper1";
 
 const HomepageS1 = () => {
   return (
@@ -7,12 +8,11 @@ const HomepageS1 = () => {
       <h1 className="text-5xl font-bold text-darkGray text-center mb-8 flex flex-col items-center">
         <span>Make your dream career a reality</span>
         <img className="w-[20vw]" src="/images/underline.png" alt="" />
-      </h1>
-      
+      </h1> 
       <h2 className="text-3xl font-bold text-darkGray text-center text-gray-600 mb-8">
         Trending on Internshala 🔥
       </h2>
-      <div className="noScrollBar flex overflow-x-auto gap-5 items-center w-[78vw] mx-auto">
+      {/* <div className="noScrollBar flex overflow-x-auto gap-5 items-center w-[78vw] mx-auto">
         <Poster
           url={
             "https://internshala.com/static/images/pgc_course_specific_banners/pgc_homepage_banner_new.png"
@@ -43,7 +43,9 @@ const HomepageS1 = () => {
             "https://internshala-uploads.internshala.com/banner-images/home_new/swiggy_internship_mar24-student.png.webp"
           }
         />
-      </div>
+      </div> */}
+      <Swiper1/>
+      
     </div>
   );
 };
