@@ -11,7 +11,7 @@ const Card1 = ({
     logo,
 }) => {
   return (
-    <div className="bg-white p-5 rounded-xl border border-gray/[.1]  w-[284px] flex-shrink-0 h-[316px] flex flex-col justify-between">
+    <div className="bg-white p-5 rounded-xl border border-gray/[.1]  w-[288px] flex-shrink-0 h-[316px] flex flex-col justify-between">
           {isActivelyHiring && <div className="space-x-2 text-xs font-medium border border-gray/[.1] px-3 py-1 rounded-md w-fit">
             <img
               src="/images/growth.png"

@@ -1,9 +1,9 @@
 // src/HomePage.js
 import React, { useState } from "react";
 import Nav from "./Nav";
-import Poster from "./Poster";
 import HomepageS1 from "./HomepageS1";
 import HomepageS2 from "./HomepageS2";
+import HomepageS3 from "./HomepageS3";
 
 const HomePage = () => {
 
@@ -68,6 +68,42 @@ const HomePage = () => {
       stipend:'1500/month',
       type: "jobs",
       duration:'2 months',
+    },
+    {
+      isActivelyHiring: true,
+      title: "Software Engineer",
+      company: "XYZ Corp.",
+      location: "New York",
+      stipend:'1500/month',
+      type: "jobs",
+      duration:'2 months',
+    },
+    {
+      isActivelyHiring: true,
+      title: "Software Engineer",
+      company: "XYZ Corp.",
+      location: "New York",
+      stipend:'1500/month',
+      type: "jobs",
+      duration:'2 months',
+    },
+    {
+      isActivelyHiring: true,
+      title: "Software Engineer",
+      company: "XYZ Corp.",
+      location: "New York",
+      stipend:'1500/month',
+      type: "jobs",
+      duration:'2 months',
+    },
+    {
+      isActivelyHiring: true,
+      title: "Software Engineer",
+      company: "XYZ Corp.",
+      location: "New York",
+      stipend:'1500/month',
+      type: "jobs",
+      duration:'2 months',
     }
   ]);
 
@@ -77,10 +113,11 @@ const HomePage = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       <Nav />
-      <main className="container mx-auto py-12">
+      <main className="container mx-auto pt-12">
         <HomepageS1/>
         <HomepageS2 internships={internships} />
         <HomepageS2 jobs={jobs} />
+        <HomepageS3 />
       </main>
     </div>
   );
