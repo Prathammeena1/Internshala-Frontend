@@ -3,7 +3,7 @@ import Poster from "./Poster";
 
 const HomepageS1 = () => {
   return (
-    <div className="HomepageS1 mt-24 px-32">
+    <div className="HomepageS1 my-24 px-32">
       <h1 className="text-5xl font-bold text-darkGray text-center mb-8 flex flex-col items-center">
         <span>Make your dream career a reality</span>
         <img className="w-[20vw]" src="/images/underline.png" alt="" />

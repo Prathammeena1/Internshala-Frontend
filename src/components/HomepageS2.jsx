@@ -2,42 +2,13 @@ import React, { useState } from "react";
 import ButtonRounded from "./ButtonRounded";
 import Card1 from "./Card1";
 
-const HomepageS2 = () => {
-  const [internships, setinternships] = useState([
-    {
-      isActivelyHiring: true,
-      title: "Software Engineer",
-      company: "XYZ Corp.",
-      location: "New York",
-      stipend: "1500/month",
-      type: "internship",
-      duration: "2 months",
-      logo:'/images/logo.png'
-    },
-    {
-      isActivelyHiring: false,
-      title: "Software Engineer 123",
-      company: "XYZ Corp. 1234",
-      location: "New York",
-      stipend:'1500/month',
-      type: "internship",
-      duration:'2 months',
-    },
-    {
-      isActivelyHiring: true,
-      title: "Software Engineer",
-      company: "XYZ Corp.",
-      location: "New York",
-      stipend:'1500/month',
-      type: "internship",
-      duration:'2 months',
-    }
-  ]);
+const HomepageS2 = ({internships,jobs}) => {
+ 
 
   return (
-    <div className="HomepageS2 mt-24 bg-lightGray px-32 h-screen pt-14">
+    <div className="HomepageS2 bg-lightGray px-32  py-14">
       <h2 className="text-3xl font-semibold text-darkGray text-center text-gray-600 mb-8">
-        Latest internships on Internshala
+        Latest {(internships && 'internships') || (jobs && 'jobs' ) } on Internshala
       </h2>
       <div className="flex items-center justify-center font-medium text-sm">
         <span className="uppercase font-meduim text-gray">
@@ -55,7 +26,7 @@ const HomepageS2 = () => {
         </div>
       </div>
       <div className="noScrollBar flex overflow-x-auto gap-5 items-center w-[78vw] mx-auto mt-8">
-        {internships.length > 0 ? (
+        { internships && internships.length > 0 ? (
           internships.map((internship, i) => (
             <Card1
               key={i}
@@ -70,9 +41,22 @@ const HomepageS2 = () => {
             />
           ))
         ) : (
-          <h1>No Internships yet!</h1>
+          jobs.length > 0 ? jobs.map((job, i) => (
+            <Card1
+              key={i}
+              isActivelyHiring={job.isActivelyHiring}
+              title={job.title}
+              company={job.company}
+              location={job.location}
+              stipend={job.stipend}
+              type={job.type}
+              duration={job.duration}
+              logo={job.logo}
+            />
+          )) : <h1>Loading...</h1>
         )}
       </div>
+      
     </div>
   );
 };
