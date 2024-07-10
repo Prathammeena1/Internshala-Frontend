@@ -1,47 +1,30 @@
 import React from "react";
 import Poster from "./Poster";
+import ButtonRounded from "./ButtonRounded";
 
 const HomepageS2 = () => {
   return (
-    <div className="HomepageS2 mt-24">
-      {/* <h1 className="text-5xl font-bold text-darkGray text-center mb-8 flex flex-col items-center">
-        <span>Make your dream career a reality</span>
-        <img className="w-[20vw]" src="/images/underline.png" alt="" />
-      </h1> */}
-      <h2 className="text-3xl font-bold text-darkGray text-center text-gray-600 mb-8">
-      Latest internships on Internshala
+    <div className="HomepageS2 mt-24 bg-lightGray px-32 h-screen pt-14">
+      <h2 className="text-3xl font-semibold text-darkGray text-center text-gray-600 mb-8">
+        Latest internships on Internshala
       </h2>
-      <div className="noScrollBar flex overflow-x-auto gap-5 items-center w-[78vw] mx-auto">
-        <Poster
-          url={
-            "https://internshala.com/static/images/pgc_course_specific_banners/pgc_homepage_banner_new.png"
-          }
-        />
-        <Poster
-          url={
-            "https://internshala-uploads.internshala.com/banner-images/home_new/employers_choice_launch_july24-student.png.webp"
-          }
-        />
-        <Poster
-          url={
-            "https://internshala-uploads.internshala.com/banner-images/home_new/mahindra_logistics-student.png.webp"
-          }
-        />
-        <Poster
-          url={
-            "https://internshala-uploads.internshala.com/banner-images/home_new/mahindra_logistics-student.png.webp"
-          }
-        />
-        <Poster
-          url={
-            "https://internshala-uploads.internshala.com/banner-images/home_new/planetspark-student.png.webp"
-          }
-        />
-        <Poster
-          url={
-            "https://internshala-uploads.internshala.com/banner-images/home_new/swiggy_internship_mar24-student.png.webp"
-          }
-        />
+      <div className="flex items-center justify-center font-medium text-sm">
+        <span className="uppercase font-meduim text-gray">
+          popular categories:
+        </span>
+        <div className="ml-5 space-x-3">
+          <ButtonRounded text={"Big brands"} type={"fill"} />
+          <ButtonRounded text={"Work from home"} />
+          <ButtonRounded text={"Part-time"} />
+          <ButtonRounded text={"MBA"} />
+          <ButtonRounded text={"Engineering"} />
+          <ButtonRounded text={"Media"} />
+          <ButtonRounded text={"Design"} />
+          <ButtonRounded text={"Data Science"} />
+        </div>
+      </div>
+      <div className="noScrollBar flex overflow-x-auto gap-5 items-center w-[78vw] mx-auto mt-8">
+        
       </div>
     </div>
   );

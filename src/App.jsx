@@ -4,7 +4,7 @@ import HomePage from './components/Homepage';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App tracking-tighter text-darkGray">
       <HomePage />
     </div>
   );

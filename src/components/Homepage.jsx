@@ -9,7 +9,7 @@ const HomePage = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       <Nav />
-      <main className="container mx-auto px-32 py-12">
+      <main className="container mx-auto py-12">
         <HomepageS1/>
         <HomepageS2/>
       </main>

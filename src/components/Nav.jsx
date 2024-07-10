@@ -28,8 +28,8 @@ const Nav = () => {
             <h3>search</h3>
           </div>
           <Button text={"login"} />
-          <Button text={"Employer Sign-up"} type={"fill"} />
           <Button text={"Candidate Sign-up"} type={"fill"} />
+          <Button text={"Employer Sign-up"} type={"fill"} />
         </div>
       </div>
     </nav>

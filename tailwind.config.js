@@ -8,10 +8,12 @@ export default {
     extend: {},
     colors: {
       primary: '#00A5EC',
+      primaryHover:'#008BDC', 
       white: '#FFFFFF',
       black:'#000000',
       gray: '#555',
-      darkGray: '#333',
+      darkGray: '#444',
+      lightGray: '#FAFAFA',
     },
   },
   plugins: [],
