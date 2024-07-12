@@ -17,7 +17,7 @@ const Card2 = ({
         <h3 className="font-medium text-gray" >{duration}</h3>
         <h1 className="text-lg font-bold">{title}</h1>
         <div className="flex gap-2 items-center" >
-        <i class="ri-star-s-fill text-[#FFAE00] text-lg"></i> <p className="text-sm font-medium text-gray " >{rating}</p> <span className="text-2xl text-primary/[.2] ">|</span> <p className="text-sm font-medium text-gray " >{learners}</p>
+        <i className="ri-star-s-fill text-[#FFAE00] text-lg"></i> <p className="text-sm font-medium text-gray " >{rating}</p> <span className="text-2xl text-primary/[.2] ">|</span> <p className="text-sm font-medium text-gray " >{learners}</p>
         </div>
         <div className="text-primaryHover flex items-center gap-1 cursor-pointer">
               <h3 className="text-sm font-semibold">Know more</h3>
