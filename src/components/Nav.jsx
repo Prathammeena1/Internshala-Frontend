@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "./Button";
+import { Link } from "react-router-dom";
 
 const Nav = () => {
   return (
@@ -27,7 +28,7 @@ const Nav = () => {
             <i className="ri-search-2-line"></i>
             <h3>search</h3>
           </div>
-          <Button text={"login"} />
+          <Link to={'/login'}><Button text={"login"} /></Link>
           <Button text={"Candidate Sign-up"} type={"fill"} />
           <Button text={"Employer Sign-up"} type={"fill"} />
         </div>

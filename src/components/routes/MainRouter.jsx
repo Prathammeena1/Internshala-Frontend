@@ -1,17 +1,20 @@
-import React from 'react'
-import { Route, Routes } from 'react-router-dom'
-import HomePage from '../Homepage'
-import LoginPage from '../LoginPage'
+// src/MainRouter.js
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
+import HomePage from '../Homepage';
+import LoginPage from '../LoginPage';
 
 const MainRouter = () => {
   return (
     <Routes>
-        <Route path="/" element={<LoginPage />} />
-        {/* <Route path="/about" element={<AboutPage />} /> */}
-        {/* <Route path="/contact" element={<ContactPage />} /> */}
-        {/* <Route path="*" element={<NotFoundPage />} /> */}
+      <Route path="/" element={<HomePage />}>
+        <Route path="login" element={<LoginPage />} />
+      </Route>
+      {/* <Route path="/about" element={<AboutPage />} /> */}
+      {/* <Route path="/contact" element={<ContactPage />} /> */}
+      {/* <Route path="*" element={<NotFoundPage />} /> */}
     </Routes>
-  )
-}
+  );
+};
 
-export default MainRouter
+export default MainRouter;

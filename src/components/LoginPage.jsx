@@ -8,7 +8,7 @@ function LoginPage() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+    <div className="flex items-center justify-center min-h-screen bg-gray-100 fixed top-0 h-screen w-full bg-gray/[.5] z-[99]">
       <div className="w-full max-w-sm p-6 bg-white rounded-lg shadow-md">
         <div className="flex mb-4">
           <button
