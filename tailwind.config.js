@@ -14,7 +14,10 @@ export default {
       gray: '#555',
       darkGray: '#444',
       lightGray: '#FAFAFA',
-      lightBlue:'#eef6ff'
+      lightBlue:'#eef6ff',
+      darkGolden:'#945e12',
+      bgGolden:'#fff8c4',
+      bgGolden2:'#fff8c400'
     },
   },
   plugins: [],
