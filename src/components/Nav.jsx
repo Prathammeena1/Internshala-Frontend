@@ -29,7 +29,7 @@ const Nav = () => {
             <h3>search</h3>
           </div>
           <Link to={'/login'}><Button text={"login"} /></Link>
-          <Button text={"Candidate Sign-up"} type={"fill"} />
+          <Link to={'/register/student'}> <Button text={"Candidate Sign-up"} type={"fill"} /></Link>
           <Button text={"Employer Sign-up"} type={"fill"} />
         </div>
       </div>

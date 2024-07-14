@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function LoginPage() {
   const [activeTab, setActiveTab] = useState("Student");
@@ -11,7 +12,9 @@ function LoginPage() {
     <div className="flex items-start pt-[24vh] justify-center min-h-screen bg-gray-100 fixed top-0 h-screen w-full bg-gray/[.5] z-[99]">
       <div className="w-full max-w-sm p-6 bg-white rounded-lg shadow-md">
 
-        
+        <Link to='/' className="relative left-[94%] top-[-1vh] text-xl text-gray/[.7] hover:text-gray transition-all ease-in-out " >
+        <i class="ri-close-large-line"></i>
+        </Link>
 
         <div className="flex mb-4">
           <button
