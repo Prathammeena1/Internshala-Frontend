@@ -37,8 +37,9 @@ function LoginPage() {
   const handleStudentSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('/api/student/signin', studentForm);
-      console.log(response.data);
+      const {data} = await axios.post('/student/signin',studentForm);
+      console.log(data);
+      document.cookie = `token=${data.token}`
     } catch (error) {
       console.error("There was an error!", error);
     }

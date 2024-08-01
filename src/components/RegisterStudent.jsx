@@ -6,8 +6,8 @@ const RegisterStudent = () => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
-    firstName: "",
-    lastName: ""
+    firstname: "",
+    lastname: ""
   });
 
   const handleChange = (e) => {
@@ -20,8 +20,10 @@ const RegisterStudent = () => {
 
 
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    const response = await axios.post('/student/signup',formData);
+    console.log(response.data);
 
   };
 
@@ -78,10 +80,10 @@ const RegisterStudent = () => {
                 <span className="text-sm capitalize font-medium"> first name </span>
                 <input
                   type="text"
-                  name="firstName"
+                  name="firstname"
                   className="w-full px-3 py-2 text-sm border border-gray/[.5] rounded focus:outline-none focus:border-primaryHover"
                   placeholder="John"
-                  value={formData.firstName}
+                  value={formData.firstname}
                   onChange={handleChange}
                   />
               </div>
@@ -89,10 +91,10 @@ const RegisterStudent = () => {
                 <span className="text-sm capitalize font-medium"> last name </span>
                 <input
                   type="text"
-                  name="lastName"
+                  name="lastname"
                   className="w-full px-3 py-2 text-sm border border-gray/[.5] rounded focus:outline-none focus:border-primaryHover"
                   placeholder="Doe"
-                  value={formData.lastName}
+                  value={formData.lastname}
                   onChange={handleChange}
                 />
               </div>
