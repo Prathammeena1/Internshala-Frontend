@@ -1,14 +1,37 @@
-import React from "react";
+import axios from "../utils/axios";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const RegisterStudent = () => {
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+    firstName: "",
+    lastName: ""
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    });
+  };
+
+
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+  };
+
   return (
     <div className="pt-20">
       <h1 className="text-5xl font-bold text-darkGray text-center flex flex-col items-end w-fit mx-auto">
         <span>Sign-up and apply for free</span>
         <img className="w-[18vw]" src="/images/underline.png" alt="" />
       </h1>
-      <h2 className="text-2xl font-meduim text-darkGray text-center mt-[-3vh] text-gray-600">
+      <h2 className="text-2xl font-medium text-darkGray text-center mt-[-3vh] text-gray-600">
         1,50,000+ companies hiring on Internshala
       </h2>
 
@@ -17,7 +40,7 @@ const RegisterStudent = () => {
           <button className="w-full py-2 mb-4 text-sm font-medium text-gray rounded border flex justify-center gap-2 items-center">
             <img
               className="h-4"
-              src="http://pluspng.com/img-png/google-logo-png-open-2000.png"
+              src="http://pluspng.com/img-ppng/google-logo-png-open-2000.png"
               alt=""
             />
             Login with Google
@@ -27,52 +50,66 @@ const RegisterStudent = () => {
             <span className="text-center text-gray-400 text-xs">OR</span>
             <hr className="w-1/2" />
           </div>
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className="mb-4">
               <span className="text-sm capitalize font-medium"> email </span>
               <input
                 type="email"
+                name="email"
                 className="w-full px-3 py-2 text-sm border border-gray/[.5] rounded focus:outline-none focus:border-primaryHover"
                 placeholder="Email"
+                value={formData.email}
+                onChange={handleChange}
               />
             </div>
             <div className="mb-4">
               <span className="text-sm capitalize font-medium"> password </span>
               <input
                 type="password"
+                name="password"
                 className="w-full px-3 py-2 text-sm border border-gray/[.5] rounded focus:outline-none focus:border-primaryHover"
                 placeholder="Password (Must be at least 6 characters)"
+                value={formData.password}
+                onChange={handleChange}
               />
             </div>
             <div className="flex mb-2 gap-2">
-            <div className="mb-4">
-              <span className="text-sm capitalize font-medium"> first name </span>
-              <input
-                type="text"
-                className="w-full px-3 py-2 text-sm border border-gray/[.5] rounded focus:outline-none focus:border-primaryHover"
-                placeholder="John"
-              />
+              <div className="mb-4">
+                <span className="text-sm capitalize font-medium"> first name </span>
+                <input
+                  type="text"
+                  name="firstName"
+                  className="w-full px-3 py-2 text-sm border border-gray/[.5] rounded focus:outline-none focus:border-primaryHover"
+                  placeholder="John"
+                  value={formData.firstName}
+                  onChange={handleChange}
+                  />
+              </div>
+              <div className="mb-4">
+                <span className="text-sm capitalize font-medium"> last name </span>
+                <input
+                  type="text"
+                  name="lastName"
+                  className="w-full px-3 py-2 text-sm border border-gray/[.5] rounded focus:outline-none focus:border-primaryHover"
+                  placeholder="Doe"
+                  value={formData.lastName}
+                  onChange={handleChange}
+                />
+              </div>
             </div>
-            <div className="mb-4">
-              <span className="text-sm capitalize font-medium"> last name </span>
-              <input
-                type="text"
-                className="w-full px-3 py-2 text-sm border border-gray/[.5] rounded focus:outline-none focus:border-primaryHover"
-                placeholder="doe"
-              />
-            </div>
-
-            </div>
-            <p className="text-xs mb-2">By signing up, you agree to our  <Link className='text-primary' >Terms and Conditions.</Link> </p>
+            <p className="text-xs mb-2">
+              By signing up, you agree to our{" "}
+              <Link className="text-primary">Terms and Conditions.</Link>
+            </p>
             <button className="w-full py-2 text-sm font-medium text-white bg-primary rounded hover:bg-primaryHover">
-              Login
+              Sign Up
             </button>
           </form>
           <div className="mt-4 text-center text-sm text-gray-600 font-medium">
-           Already registered {" "}
-            <a href="#" className="text-blue-500 hover:underline">
+            Already registered{" "}
+            <Link to="/login" className="text-blue-500 hover:underline">
               Login
-            </a>
+            </Link>
           </div>
         </div>
       </div>

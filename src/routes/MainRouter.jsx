@@ -1,9 +1,9 @@
 // src/MainRouter.js
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import HomePage from '../Homepage';
-import LoginPage from '../LoginPage';
-import RegisterStudent from '../RegisterStudent';
+import HomePage from '../components/Homepage';
+import LoginPage from '../components/LoginPage';
+import RegisterStudent from '../components/RegisterStudent';
 
 const MainRouter = () => {
   return (

@@ -1,6 +1,6 @@
 // src/App.js
 import React from 'react';
-import MainRouter from './components/routes/MainRouter';
+import MainRouter from './routes/MainRouter';
 import Nav from './components/Nav';
 
 function App() {
