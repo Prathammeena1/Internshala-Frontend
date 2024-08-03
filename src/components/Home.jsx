@@ -5,6 +5,7 @@ import HomepageS3 from "./HomepageS3";
 import { Outlet } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getstudent } from "../store/actions/studentActions";
+import axios from "../utils/axios";
 
 const Home = () => {
   const [internships, setinternships] = useState([
@@ -104,6 +105,13 @@ const Home = () => {
       duration: "2 months",
     },
   ]);
+
+
+  useEffect(async()=>{
+    const internships = await axios.get('/internship/all')
+    console.log(internships)
+    
+  },[])
 
 
   return (
