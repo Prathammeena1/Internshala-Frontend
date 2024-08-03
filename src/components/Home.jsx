@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import HomepageS1 from "./HomepageS1";
 import HomepageS2 from "./HomepageS2";
 import HomepageS3 from "./HomepageS3";
 import { Outlet } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { getstudent } from "../store/actions/studentActions";
 
 const Home = () => {
   const [internships, setinternships] = useState([
@@ -103,7 +105,7 @@ const Home = () => {
     },
   ]);
 
-  
+
   return (
     <main className="container mx-auto pt-12">
       <Outlet />

@@ -1,6 +1,8 @@
 import axios from "../utils/axios";
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { getstudent, login } from "../store/actions/studentActions";
+import { useDispatch, useSelector } from "react-redux";
 
 
 function LoginPage() {
@@ -34,12 +36,24 @@ function LoginPage() {
     });
   };
 
+  const dispatch = useDispatch()
+
+  const {student} = useSelector(state => state.studentSlice)
+  // useEffect(() => {
+    
+  // }, [])
+  
+  console.log(student)
+  
+  
+  
+  const navigate = useNavigate()
+  
   const handleStudentSubmit = async (e) => {
     e.preventDefault();
     try {
-      const {data} = await axios.post('/student/signin',studentForm);
-      console.log(data);
-      document.cookie = `token=${data.token}`
+      dispatch(login(studentForm))
+      navigate('/')
     } catch (error) {
       console.error("There was an error!", error);
     }

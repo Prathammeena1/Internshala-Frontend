@@ -1,6 +1,8 @@
 import axios from "../utils/axios";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { register } from "../store/actions/studentActions";
+import { useDispatch } from "react-redux";
 
 const RegisterStudent = () => {
   const [formData, setFormData] = useState({
@@ -20,11 +22,12 @@ const RegisterStudent = () => {
 
 
 
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await axios.post('/student/signup',formData);
-    console.log(response.data);
-
+    dispatch(register(formData))
+    navigate('/')
   };
 
   return (
