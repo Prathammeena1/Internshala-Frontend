@@ -1,10 +1,11 @@
 // src/MainRouter.js
-import React from 'react';
-import { Route, Routes } from 'react-router-dom';
-import HomePage from '../components/Homepage';
-import LoginPage from '../components/LoginPage';
-import RegisterStudent from '../components/RegisterStudent';
-import RegisterEmployee from '../components/RegisterEmployee';
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import HomePage from "../components/Homepage";
+import LoginPage from "../components/LoginPage";
+import RegisterStudent from "../components/RegisterStudent";
+import RegisterEmployee from "../components/RegisterEmployee";
+import Dashboard from "../components/Dashboard";
 
 const MainRouter = () => {
   return (
@@ -12,10 +13,18 @@ const MainRouter = () => {
       <Route path="/" element={<HomePage />}>
         <Route path="login" element={<LoginPage />} />
       </Route>
-      <Route path='/register/student' element={<RegisterStudent/>} />
-      <Route path='/register/employee' element={<RegisterEmployee/>} />
-      {/* <Route path="/about" element={<AboutPage />} /> */}
-      {/* <Route path="/contact" element={<ContactPage />} /> */}
+
+      {/* students routes */}
+      <Route path="/register/student" element={<RegisterStudent />} />
+
+
+
+      {/* students routes */}
+      <Route path="/register/employee" element={<RegisterEmployee />} />
+      <Route path="/employee/dashboard" element={<Dashboard />} />
+
+
+
       {/* <Route path="*" element={<NotFoundPage />} /> */}
     </Routes>
   );

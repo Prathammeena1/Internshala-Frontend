@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import HomepageS1 from "./HomepageS1";
 import HomepageS2 from "./HomepageS2";
 import HomepageS3 from "./HomepageS3";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getstudent } from "../store/actions/studentActions";
 import axios from "../utils/axios";
@@ -109,23 +109,18 @@ const Home = () => {
 
   const getinternships =async ()=>{{
     const internships = await axios.get('/internship/all')
-    console.log(internships)
+    // console.log(internships)
   }}
 
+  
   const {employee} = useSelector(state => state.employeeSlice)
-  console.log(employee)
   const {student} = useSelector(state => state.studentSlice)
-  console.log(student)
 
-  const dispatch = useDispatch()
-  const loginUserJWT = ()=>{
-    dispatch(getemployee())
-    dispatch(getstudent())
-  }
-
-
+  const navigate = useNavigate()
+  // Object.keys(employee).length > 0 && navigate('/employee/dashboard')
+  
   useEffect(()=>{
-    loginUserJWT()
+    // loginUserJWT()
   },[])
 
 
