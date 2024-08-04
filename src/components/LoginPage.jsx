@@ -1,7 +1,7 @@
 import axios from "../utils/axios";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { getstudent, login } from "../store/actions/studentActions";
+import { getstudent, loginstudent } from "../store/actions/studentActions";
 import { useDispatch, useSelector } from "react-redux";
 
 
@@ -52,7 +52,7 @@ function LoginPage() {
   const handleStudentSubmit = async (e) => {
     e.preventDefault();
     try {
-      dispatch(login(studentForm))
+      dispatch(loginstudent(studentForm))
       navigate('/')
     } catch (error) {
       console.error("There was an error!", error);

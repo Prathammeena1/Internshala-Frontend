@@ -1,8 +1,8 @@
 import axios from "../utils/axios";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { register } from "../store/actions/studentActions";
 import { useDispatch } from "react-redux";
+import { registeremployee } from "../store/actions/employeeActions";
 
 const RegisterEmployee= () => {
   const [formData, setFormData] = useState({
@@ -10,7 +10,7 @@ const RegisterEmployee= () => {
     password: "",
     firstname: "",
     lastname: "",
-    mobileNumber: ""
+    contact: ""
   });
 
   const handleChange = (e) => {
@@ -27,8 +27,9 @@ const RegisterEmployee= () => {
   const dispatch = useDispatch()
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // dispatch(register(formData))
-    // navigate('/')
+    dispatch(registeremployee(formData))
+    navigate('/')
+    // console.log(formData);
   };
 
   return (
@@ -97,10 +98,10 @@ const RegisterEmployee= () => {
               <span className="text-sm capitalize font-medium"> mobile number </span>
               <input
                 type="number"
-                name="mobileNumber"
+                name="contact"
                 className="w-full px-3 py-2 text-sm border border-gray/[.5] rounded focus:outline-none focus:border-primaryHover"
                 placeholder="Enter mobile number"
-                value={formData.mobileNumber}
+                value={formData.contact}
                 onChange={handleChange}
               />
             </div>

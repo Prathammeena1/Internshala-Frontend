@@ -1,7 +1,7 @@
 import axios from "../utils/axios";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { register } from "../store/actions/studentActions";
+import { registerstudent } from "../store/actions/studentActions";
 import { useDispatch } from "react-redux";
 
 const RegisterStudent = () => {
@@ -26,7 +26,7 @@ const RegisterStudent = () => {
   const dispatch = useDispatch()
   const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch(register(formData))
+    dispatch(registerstudent(formData))
     navigate('/')
   };
 

@@ -13,13 +13,13 @@ export const getstudent = ()=> async (dispatch)=>{
 
 
 
-export const login = (studentInfo)=> async (dispatch)=>{
+export const loginstudent = (studentInfo)=> async (dispatch)=>{
     const {data} = await axios.post('/student/signin',studentInfo);
     document.cookie = `token=${data.token}`
     await dispatch(getstudent())
 }
 
-export const register = (studentInfo)=> async (dispatch)=>{
+export const registerstudent = (studentInfo)=> async (dispatch)=>{
     const {data} = await axios.post('/student/signup',studentInfo);
     document.cookie = `token=${data.token}`
     await dispatch(getstudent())
