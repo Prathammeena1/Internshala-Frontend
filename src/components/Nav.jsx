@@ -30,7 +30,8 @@ const Nav = () => {
           </div>
           <Link to={'/login'}><Button text={"login"} /></Link>
           <Link to={'/register/student'}> <Button text={"Candidate Sign-up"} type={"fill"} /></Link>
-          <Button text={"Employer Sign-up"} type={"fill"} />
+          <Link to={'/register/employee'}> <Button text={"Employer Sign-up"} type={"fill"} /></Link>
+          
         </div>
       </div>
     </nav>

@@ -106,11 +106,14 @@ const Home = () => {
     },
   ]);
 
-
-  useEffect(async()=>{
+  const getinternships =async ()=>{{
     const internships = await axios.get('/internship/all')
-    console.log(internships)
     
+    console.log(internships)
+  }}
+
+  useEffect(()=>{
+    getinternships()
   },[])
 
 
