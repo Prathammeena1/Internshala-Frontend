@@ -6,8 +6,8 @@ import { setemployee } from "../reducers/employeeSlice";
 
 
 export const getemployee = ()=> async (dispatch)=>{
-    // console.log()
     const {data} = await axios.get('/employee');
+    data.employee && dispatch(setemployee(data.employee));
     console.log(data);
 }
 

@@ -1,7 +1,8 @@
 import axios from "../utils/axios";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { getstudent, loginstudent } from "../store/actions/studentActions";
+import {  loginstudent } from "../store/actions/studentActions";
+import {  loginemployee } from "../store/actions/employeeActions";
 import { useDispatch, useSelector } from "react-redux";
 
 
@@ -59,9 +60,15 @@ function LoginPage() {
     }
     // console.log(studentForm);
   };
-
+  
   const handleEmployerSubmit = (e) => {
     e.preventDefault();
+    try {
+      dispatch(loginemployee(employerForm))
+      navigate('/')
+    } catch (error) {
+      console.error("There was an error!", error);
+    }
     // Handle employer form submission logic here
     console.log(employerForm);
   };

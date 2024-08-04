@@ -6,6 +6,7 @@ import { Outlet } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getstudent } from "../store/actions/studentActions";
 import axios from "../utils/axios";
+import { getemployee } from "../store/actions/employeeActions";
 
 const Home = () => {
   const [internships, setinternships] = useState([
@@ -108,12 +109,23 @@ const Home = () => {
 
   const getinternships =async ()=>{{
     const internships = await axios.get('/internship/all')
-    
     console.log(internships)
   }}
 
+  const {employee} = useSelector(state => state.employeeSlice)
+  console.log(employee)
+  const {student} = useSelector(state => state.studentSlice)
+  console.log(student)
+
+  const dispatch = useDispatch()
+  const loginUserJWT = ()=>{
+    dispatch(getemployee())
+    dispatch(getstudent())
+  }
+
+
   useEffect(()=>{
-    // getinternships()
+    loginUserJWT()
   },[])
 
 

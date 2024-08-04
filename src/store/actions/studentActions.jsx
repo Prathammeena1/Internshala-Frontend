@@ -8,6 +8,7 @@ import { setstudent } from "../reducers/studentSlice";
 export const getstudent = ()=> async (dispatch)=>{
     console.log()
     const {data} = await axios.get('/student');
+    data.student && setstudent(data.student)
     console.log(data);
 }
 
