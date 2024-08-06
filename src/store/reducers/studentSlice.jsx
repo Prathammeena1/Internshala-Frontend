@@ -4,7 +4,7 @@ const initialState ={
   student: {},
 }
 
-export const counterSlice = createSlice({
+export const studentSlice = createSlice({
   name: 'student',
   initialState,
   reducers: {
@@ -15,6 +15,6 @@ export const counterSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { setstudent } = counterSlice.actions
+export const { setstudent } = studentSlice.actions
 
-export default counterSlice.reducer
+export default studentSlice.reducer

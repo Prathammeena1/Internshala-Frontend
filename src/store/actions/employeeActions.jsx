@@ -27,3 +27,4 @@ export const registeremployee = (employeeInfo)=> async (dispatch)=>{
     document.cookie = `token=${data.token}`
     await dispatch(getemployee())
 }
+

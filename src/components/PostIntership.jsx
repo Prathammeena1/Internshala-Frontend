@@ -1,7 +1,8 @@
 import axios from "../utils/axios";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { createinternship } from "../store/actions/internshipActions";
 
 const PostInternship = () => {
   const [formData, setFormData] = useState({
@@ -21,20 +22,29 @@ const PostInternship = () => {
     assessment: ""
   });
 
-  console.log(formData)
+  const amountTag = useRef(null)
+
   const handleChange = (e) => {
     const { name, value } = e.target;
-    if(name == 'amount' && value.length > 10 || name == 'openings' && value.length > 10){
-      return ;
+
+    if(name == 'status'){
+      amountTag.current.style.display = 'initial';
+    }
+    if(name == 'status' && value == 'Unpaid'){
+      amountTag.current.style.display = 'none';
     }
     if(name == 'status' || name == 'amount'){
       setFormData({
         ...formData,
         stipend:{
+          ...formData.stipend,
           [name]: value
         }
       });
       return
+    }
+    if(name == 'amount' && value.length > 10 || name == 'openings' && value.length > 10){
+      return ;
     }
     
     setFormData({
@@ -49,9 +59,9 @@ const PostInternship = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // const response = await axios.post('/internships', formData);
+      dispatch(createinternship(formData))
 
-      console.log(formData);
+      // console.log(data);
       // navigate('/');
     } catch (error) {
       console.error('Error posting internship:', error);
@@ -59,13 +69,13 @@ const PostInternship = () => {
   };
 
   return (
-    <div className="pt-20">
-      <h1 className="text-5xl font-bold text-darkGray text-center flex flex-col items-end w-fit mx-auto">
+    <div className="pt-20 pb-10">
+      <h1 className="text-5xl font-bold text-darkGray text-center flex flex-col items-end w-fit mx-auto mt-4">
         <span>Post a new Internship</span>
         <img className="w-[18vw]" src="/images/underline.png" alt="" />
       </h1>
 
-      <div className="w-full max-w-md p-6 bg-white rounded-lg drop-shadow-[0_35px_35px_rgba(0,0,0,0.1)] mx-auto mt-10">
+      <div className="w-full max-w-xl p-6 bg-white rounded-lg drop-shadow-[0_35px_35px_rgba(0,0,0,0.1)] mx-auto">
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <span className="text-sm capitalize font-medium"> Profile </span>
@@ -119,7 +129,9 @@ const PostInternship = () => {
               onChange={handleChange}
             />
           </div>
-          <div className="mb-4">
+          
+          <div className="flex gap-2 items-center">
+          <div className="mb-4 w-1/2">
             <span className="text-sm capitalize font-medium"> From </span>
             <input
             required
@@ -131,7 +143,7 @@ const PostInternship = () => {
               onChange={handleChange}
             />
           </div>
-          <div className="mb-4">
+          <div className="mb-4 w-1/2">
             <span className="text-sm capitalize font-medium"> To </span>
             <input
             required
@@ -142,6 +154,7 @@ const PostInternship = () => {
               value={formData.to}
               onChange={handleChange}
             />
+          </div>
           </div>
           <div className="mb-4">
             <span className="text-sm capitalize font-medium"> Duration </span>
@@ -174,7 +187,7 @@ const PostInternship = () => {
             <select
               name="status"
               className="w-full px-3 py-2 text-sm border border-gray/[.5] rounded focus:outline-none focus:border-primaryHover"
-              value={formData.stipendStatus}
+              value={formData.stipend.status}
               onChange={handleChange}
             >
               <option value="Fixed">Fixed</option>
@@ -183,10 +196,9 @@ const PostInternship = () => {
               <option value="Unpaid">Unpaid</option>
             </select>
           </div>
-          <div className="mb-4">
+          <div ref={amountTag} className="mb-4">
             <span className="text-sm capitalize font-medium"> Stipend Amount (₹) </span>
             <input
-            required
             maxLength={15}
               type="number"
               name="amount"
