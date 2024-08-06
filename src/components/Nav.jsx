@@ -88,14 +88,14 @@ const Nav = () => {
               >
                 Post Internships
               </NavLink>
-              {/* <NavLink
+              <NavLink
                 to="/employee/post/jobs"
                 className={({ isActive }) =>
-                  isActive && "text-primary "
+                  isActive ? "text-primary ":''
                 }
               >
                 Post Jobs
-              </NavLink> */}
+              </NavLink>
             </div>
           )}
         </div>

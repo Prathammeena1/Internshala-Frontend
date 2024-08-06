@@ -7,8 +7,11 @@ import RegisterStudent from "../components/RegisterStudent";
 import RegisterEmployee from "../components/RegisterEmployee";
 import Dashboard from "../components/Dashboard";
 import PostIntership from "../components/PostIntership";
+import PostJob from "../components/PostJob";
 
 const MainRouter = () => {
+
+
   return (
     <Routes>
       <Route path="/" element={<HomePage />}>
@@ -24,6 +27,7 @@ const MainRouter = () => {
       <Route path="/register/employee" element={<RegisterEmployee />} />
       <Route path="/employee/dashboard" element={<Dashboard />} />
       <Route path="/employee/post/internships" element={<PostIntership />} />
+      <Route path="/employee/post/jobs" element={<PostJob />} />
 
 
 
