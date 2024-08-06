@@ -12,7 +12,9 @@ export const getemployee = () => async (dispatch) => {
         }
         console.log(data);
     } catch (error) {
-        console.error('Error fetching employee data:', error);
+        if(error.response.data.errName == "TokenExpiredError"){
+            alert('login again!')
+        }
     }
 };
 

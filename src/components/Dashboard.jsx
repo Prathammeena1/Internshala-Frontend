@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { isExpired } from "./utils/expirey";
 
 const Dashboard = () => {
   const { internships } = useSelector((state) => state.internshipSlice);
@@ -10,16 +11,7 @@ const Dashboard = () => {
 
 
 
-  const isExpired = (expiryDateStr) => {
-    // Parse the given expiry date string into a Date object
-    const expiryDate = new Date(expiryDateStr);
-    
-    // Get the current date
-    const currentDate = new Date();
-    
-    // Check if the current date is past the expiry date
-    return currentDate > expiryDate;
-  };
+  
   // const expired = ;
   // console.log(expired); // Output: true or false based on the current date
   
@@ -27,7 +19,7 @@ const Dashboard = () => {
 
 
   return (
-    <div className="p-8 pt-28 bg-gray-100 min-h-screen">
+    <div className="p-8 pt-24 bg-gray-100 min-h-screen px-32">
       <div className="bg-white shadow-lg rounded-lg">
         <div className="flex justify-between items-center border-b p-4">
           <div className="flex space-x-8">
@@ -41,8 +33,8 @@ const Dashboard = () => {
           <div className="grid grid-cols-5 gap-4 py-2 border-b font-semibold text-gray-600">
             <div>PROFILE</div>
             <div>STATUS</div>
-            <div className="text-center">TOTAL Applications</div>
-            <div className="text-center">ACTION</div>
+            <div className="text-center">Number of Applications</div>
+            <div className="text-center">Applications</div>
             <div className="text-center">SHARE ON LINKEDIN</div>
           </div>
           <div>
@@ -72,7 +64,7 @@ const Dashboard = () => {
                   </div>
                   <div className="text-center">
                     <button className="text-primary hover:text-primaryHover duration-[.3s] font-medium ">
-                      Manage
+                      View
                     </button>
                   </div>
                   <div className="text-center">
