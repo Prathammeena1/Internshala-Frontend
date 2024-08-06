@@ -9,7 +9,7 @@ const Nav = () => {
   const { student } = useSelector((state) => state.studentSlice);
 
   return (
-    <nav className="bg-white shadow fixed w-full">
+    <nav className="bg-white shadow fixed w-full z-[2]">
       <div className="container mx-auto px-32 py-4  text-sm flex justify-between items-center">
         <div className="flex gap-4 items-end">
           <div>
@@ -75,19 +75,27 @@ const Nav = () => {
               <NavLink
                 to="/employee/dashboard"
                 className={({ isActive }) =>
-                  isActive && "text-primary "
+                  isActive ? "text-primary ":''
                 }
               >
                 Dashboard
               </NavLink>
               <NavLink
-                to="/employee/post/internshipsAndJobs"
+                to="/employee/post/internships"
+                className={({ isActive }) =>
+                  isActive ? "text-primary ":''
+                }
+              >
+                Post Internships
+              </NavLink>
+              {/* <NavLink
+                to="/employee/post/jobs"
                 className={({ isActive }) =>
                   isActive && "text-primary "
                 }
               >
-                Post Internships / Jobs
-              </NavLink>
+                Post Jobs
+              </NavLink> */}
             </div>
           )}
         </div>

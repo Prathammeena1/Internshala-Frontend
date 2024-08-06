@@ -6,6 +6,7 @@ import LoginPage from "../components/LoginPage";
 import RegisterStudent from "../components/RegisterStudent";
 import RegisterEmployee from "../components/RegisterEmployee";
 import Dashboard from "../components/Dashboard";
+import PostIntership from "../components/PostIntership";
 
 const MainRouter = () => {
   return (
@@ -22,6 +23,7 @@ const MainRouter = () => {
       {/* students routes */}
       <Route path="/register/employee" element={<RegisterEmployee />} />
       <Route path="/employee/dashboard" element={<Dashboard />} />
+      <Route path="/employee/post/internships" element={<PostIntership />} />
 
 
 

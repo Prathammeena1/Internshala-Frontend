@@ -1,0 +1,235 @@
+import axios from "../utils/axios";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+
+const PostInternship = () => {
+  const [formData, setFormData] = useState({
+    profile: "",
+    type: "In office",
+    openings: 1,
+    skills: "",
+    from: "",
+    to: "",
+    duration: "",
+    responsibility: "",
+    stipend:{
+      status: "Fixed",
+      amount: 0,
+    },
+    perks: "",
+    assessment: ""
+  });
+
+  console.log(formData)
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    if(name == 'amount' && value.length > 10 || name == 'openings' && value.length > 10){
+      return ;
+    }
+    if(name == 'status' || name == 'amount'){
+      setFormData({
+        ...formData,
+        stipend:{
+          [name]: value
+        }
+      });
+      return
+    }
+    
+    setFormData({
+      ...formData,
+      [name]: value
+    });
+  };
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      // const response = await axios.post('/internships', formData);
+
+      console.log(formData);
+      // navigate('/');
+    } catch (error) {
+      console.error('Error posting internship:', error);
+    }
+  };
+
+  return (
+    <div className="pt-20">
+      <h1 className="text-5xl font-bold text-darkGray text-center flex flex-col items-end w-fit mx-auto">
+        <span>Post a new Internship</span>
+        <img className="w-[18vw]" src="/images/underline.png" alt="" />
+      </h1>
+
+      <div className="w-full max-w-md p-6 bg-white rounded-lg drop-shadow-[0_35px_35px_rgba(0,0,0,0.1)] mx-auto mt-10">
+        <form onSubmit={handleSubmit}>
+          <div className="mb-4">
+            <span className="text-sm capitalize font-medium"> Profile </span>
+            <input
+            required
+            maxLength={20}
+              type="text"
+              name="profile"
+              className="w-full px-3 py-2 text-sm border border-gray/[.5] rounded focus:outline-none focus:border-primaryHover"
+              placeholder="Profile"
+              value={formData.profile}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="mb-4">
+            <span className="text-sm capitalize font-medium"> Type </span>
+            <select
+              name="type"
+              className="w-full px-3 py-2 text-sm border border-gray/[.5] rounded focus:outline-none focus:border-primaryHover"
+              value={formData.type}
+              onChange={handleChange}
+            >
+              <option value="In office">In office</option>
+              <option value="remote">Remote</option>
+            </select>
+          </div>
+          <div className="mb-4">
+            <span className="text-sm capitalize font-medium"> Openings </span>
+            <input
+            required
+            maxLength={10}
+              type="number"
+              name="openings"
+              min={1}
+              className="w-full px-3 py-2 text-sm border border-gray/[.5] rounded focus:outline-none focus:border-primaryHover"
+              placeholder="Openings"
+              value={formData.openings}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="mb-4">
+            <span className="text-sm capitalize font-medium"> Skills </span>
+            <input
+            required
+            maxLength={100}
+              type="text"
+              name="skills"
+              className="w-full px-3 py-2 text-sm border border-gray/[.5] rounded focus:outline-none focus:border-primaryHover"
+              placeholder="Skills"
+              value={formData.skills}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="mb-4">
+            <span className="text-sm capitalize font-medium"> From </span>
+            <input
+            required
+            maxLength={10}
+              type="date"
+              name="from"
+              className="w-full px-3 py-2 text-sm border border-gray/[.5] rounded focus:outline-none focus:border-primaryHover"
+              value={formData.from}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="mb-4">
+            <span className="text-sm capitalize font-medium"> To </span>
+            <input
+            required
+            maxLength={10}
+              type="date"
+              name="to"
+              className="w-full px-3 py-2 text-sm border border-gray/[.5] rounded focus:outline-none focus:border-primaryHover"
+              value={formData.to}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="mb-4">
+            <span className="text-sm capitalize font-medium"> Duration </span>
+            <input
+            required
+            maxLength={15}
+              type="text"
+              name="duration"
+              className="w-full px-3 py-2 text-sm border border-gray/[.5] rounded focus:outline-none focus:border-primaryHover"
+              placeholder="Duration"
+              value={formData.duration}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="mb-4">
+            <span className="text-sm capitalize font-medium"> Responsibility </span>
+            <textarea
+            required
+            maxLength={100}
+              type="text"
+              name="responsibility"
+              className="w-full px-3 py-2 text-sm border border-gray/[.5] rounded focus:outline-none focus:border-primaryHover"
+              placeholder="Responsibility"
+              value={formData.responsibility}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="mb-4">
+            <span className="text-sm capitalize font-medium"> Stipend Status </span>
+            <select
+              name="status"
+              className="w-full px-3 py-2 text-sm border border-gray/[.5] rounded focus:outline-none focus:border-primaryHover"
+              value={formData.stipendStatus}
+              onChange={handleChange}
+            >
+              <option value="Fixed">Fixed</option>
+              <option value="Negotiable">Negotiable</option>
+              <option value="Performance Based">Performance Based</option>
+              <option value="Unpaid">Unpaid</option>
+            </select>
+          </div>
+          <div className="mb-4">
+            <span className="text-sm capitalize font-medium"> Stipend Amount (₹) </span>
+            <input
+            required
+            maxLength={15}
+              type="number"
+              name="amount"
+              min={1}
+              className="w-full px-3 py-2 text-sm border border-gray/[.5] rounded focus:outline-none focus:border-primaryHover"
+              placeholder="Stipend Amount"
+              value={formData.amount}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="mb-4">
+            <span className="text-sm capitalize font-medium"> Perks </span>
+            <textarea
+            required
+            maxLength={100}
+              type="text"
+              name="perks"
+              className="w-full px-3 py-2 text-sm border border-gray/[.5] rounded focus:outline-none focus:border-primaryHover"
+              placeholder="Perks"
+              value={formData.perks}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="mb-4">
+            <span className="text-sm capitalize font-medium"> Assessment </span>
+            <textarea
+            required
+            maxLength={100}
+              type="text"
+              name="assessment"
+              className="w-full px-3 py-2 text-sm border border-gray/[.5] rounded focus:outline-none focus:border-primaryHover"
+              placeholder="Assessment"
+              value={formData.assessment}
+              onChange={handleChange}
+            />
+          </div>
+          <button className="w-full py-2 text-sm font-medium text-white bg-primary rounded duration-[.3s] hover:bg-primaryHover">
+            Post Internship
+          </button>
+        </form>
+      </div>
+    </div>
+  );
+};
+
+export default PostInternship;
