@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getemployee } from './store/actions/employeeActions';
 import { getstudent } from './store/actions/studentActions';
 import { getinternships } from './store/actions/internshipActions';
+import { getjobs } from './store/actions/jobActions';
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
     dispatch(getemployee())
     dispatch(getstudent())
     dispatch(getinternships())
+    dispatch(getjobs())
   }
 
 

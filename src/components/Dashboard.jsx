@@ -5,21 +5,11 @@ import { isExpired } from "./utils/expirey";
 
 const Dashboard = () => {
   const { internships } = useSelector((state) => state.internshipSlice);
+  const { jobs } = useSelector((state) => state.jobSlice);
+  console.log(jobs)
   const [view, setView] = useState('internships');
 
-  // Mock job data
-  const jobs = [
-    {
-      profile: "Software Engineer",
-      from: "2024-06-01",
-      students: [1, 2],
-    },
-    {
-      profile: "Product Manager",
-      from: "2024-05-15",
-      students: [1],
-    },
-  ];
+  
 
   const handleViewChange = (viewType) => {
     setView(viewType);
@@ -29,7 +19,7 @@ const Dashboard = () => {
     items.length > 0 ? (
       items.map((item, i) => (
         <div key={i} className="grid grid-cols-5 gap-4 py-4 text-gray-700">
-          <div className="font-semibold text-gray">{item.profile}</div>
+          <div className="font-semibold text-gray">{item.profile || item.title }</div>
           {!isExpired(item.from) ? (
             <div className="text-green-500 font-medium flex items-center gap-2">
               <span className="inline-block h-2 aspect-square rounded-full bg-green-500"></span>
