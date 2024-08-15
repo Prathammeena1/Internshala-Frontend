@@ -15,6 +15,7 @@ function App() {
   const {student} = useSelector(state => state.studentSlice)
   const {internships} = useSelector(state => state.internshipSlice)
 
+
   // console.log(internships)
 
   const dispatch = useDispatch()
@@ -23,6 +24,7 @@ function App() {
     dispatch(getstudent())
     dispatch(getinternships())
     dispatch(getjobs())
+    // console.log('hello')
   }
 
 

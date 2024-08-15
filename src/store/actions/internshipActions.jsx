@@ -9,6 +9,8 @@ export const getinternships = () => async (dispatch) => {
         const { data } = await axios.get('/internship/all');
         if (data.internships) {
             dispatch(setinternship(data.internships));
+
+            // console.log(data.internships)
         }
         // console.log(data);
     } catch (error) {
