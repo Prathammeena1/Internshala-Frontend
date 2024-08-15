@@ -14,42 +14,46 @@ const PostInternship = () => {
     to: "",
     duration: "",
     responsibility: "",
-    stipend:{
+    stipend: {
       status: "Fixed",
       amount: 0,
     },
     perks: "",
-    assessment: ""
+    assessment: "",
+    image: null, // Change to null initially
   });
 
-  const amountTag = useRef(null)
+  const amountTag = useRef(null);
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value, files } = e.target;
 
-    if(name == 'status'){
+    if (name === 'status') {
       amountTag.current.style.display = 'initial';
     }
-    if(name == 'status' && value == 'Unpaid'){
+    if (name === 'status' && value === 'Unpaid') {
       amountTag.current.style.display = 'none';
     }
-    if(name == 'status' || name == 'amount'){
+    if (name === 'status' || name === 'amount') {
       setFormData({
         ...formData,
-        stipend:{
+        stipend: {
           ...formData.stipend,
-          [name]: value
-        }
+          [name]: value,
+        },
       });
-      return
+      return;
     }
-    if(name == 'amount' && value.length > 10 || name == 'openings' && value.length > 10){
-      return ;
+    if (name === 'image') {
+      setFormData({
+        ...formData,
+        image: files[0], // Store the file object
+      });
+      return;
     }
-    
     setFormData({
       ...formData,
-      [name]: value
+      [name]: value,
     });
   };
 
@@ -58,13 +62,24 @@ const PostInternship = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      dispatch(createinternship(formData))
 
-      // console.log(data);
-      // navigate('/');
+    const data = new FormData();
+    Object.keys(formData).forEach((key) => {
+      if (key === "stipend") {
+        data.append("stipendStatus", formData.stipend.status);
+        data.append("stipendAmount", formData.stipend.amount);
+      } else {
+        data.append(key, formData[key]);
+      }
+    });
+
+
+    try {
+      dispatch(createinternship(data)); // Pass the FormData object to the action
+      // console.log(data)
+      navigate("/");
     } catch (error) {
-      console.error('Error posting internship:', error);
+      console.error("Error posting internship:", error);
     }
   };
 
@@ -76,12 +91,12 @@ const PostInternship = () => {
       </h1>
 
       <div className="w-full max-w-xl p-6 bg-white rounded-lg drop-shadow-[0_35px_35px_rgba(0,0,0,0.1)] mx-auto">
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} encType="multipart/form-data">
           <div className="mb-4">
             <span className="text-sm capitalize font-medium"> Profile </span>
             <input
-            required
-            maxLength={20}
+              required
+              maxLength={20}
               type="text"
               name="profile"
               className="w-full px-3 py-2 text-sm border border-gray/[.5] rounded focus:outline-none focus:border-primaryHover"
@@ -91,45 +106,16 @@ const PostInternship = () => {
             />
           </div>
           <div className="mb-4">
-            <span className="text-sm capitalize font-medium"> Type </span>
-            <select
-              name="type"
-              className="w-full px-3 py-2 text-sm border border-gray/[.5] rounded focus:outline-none focus:border-primaryHover"
-              value={formData.type}
-              onChange={handleChange}
-            >
-              <option value="In office">In office</option>
-              <option value="remote">Remote</option>
-            </select>
-          </div>
-          <div className="mb-4">
-            <span className="text-sm capitalize font-medium"> Openings </span>
+            <span className="text-sm capitalize font-medium"> Image </span>
             <input
-            required
-            maxLength={10}
-              type="number"
-              name="openings"
-              min={1}
+              required
+              type="file"
+              name="image"
               className="w-full px-3 py-2 text-sm border border-gray/[.5] rounded focus:outline-none focus:border-primaryHover"
-              placeholder="Openings"
-              value={formData.openings}
+              placeholder="Profile"
               onChange={handleChange}
             />
           </div>
-          <div className="mb-4">
-            <span className="text-sm capitalize font-medium"> Skills </span>
-            <input
-            required
-            maxLength={100}
-              type="text"
-              name="skills"
-              className="w-full px-3 py-2 text-sm border border-gray/[.5] rounded focus:outline-none focus:border-primaryHover"
-              placeholder="Skills"
-              value={formData.skills}
-              onChange={handleChange}
-            />
-          </div>
-          
           <div className="flex gap-2 items-center">
           <div className="mb-4 w-1/2">
             <span className="text-sm capitalize font-medium"> From </span>

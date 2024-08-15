@@ -17,8 +17,13 @@ export const getinternships = () => async (dispatch) => {
 };
 
 export const createinternship = (internshipInfo)=> async (dispatch)=>{
-    const {data} = await axios.post('employee/internship/create',internshipInfo);
+    const {data} = await axios.post('employee/internship/create',internshipInfo,{
+        headers: {
+            "Content-Type": "multipart/form-data", // Ensure correct content type
+          },
+    });
     document.cookie = `token=${data.token}`
     await dispatch(getinternships())
+    console.log(data);
 }
 

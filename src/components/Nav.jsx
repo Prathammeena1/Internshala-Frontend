@@ -1,12 +1,26 @@
 import React from "react";
 import Button from "./Button";
 import { Link, NavLink } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { logoutemployee } from "../store/actions/employeeActions";
+import { logoutstudent } from "../store/actions/studentActions";
 
 const Nav = () => {
   const { employee } = useSelector((state) => state.employeeSlice);
   // console.log(employee)
   const { student } = useSelector((state) => state.studentSlice);
+  const dispatch =  useDispatch()
+
+  const logoutEmployeeHandler = ()=>{
+    dispatch(logoutemployee())
+  }
+  const logoutStudentHandler = ()=>{
+    dispatch(logoutstudent())
+  }
+
+  console.log(student)
+
+
 
   return (
     <nav className="bg-white shadow fixed w-full z-[2]">
@@ -23,9 +37,9 @@ const Nav = () => {
             />
           </div>
 
-          {Object.keys(employee).length == 0 &&
-          Object.keys(student).length == 0 ? (
-            <div className="ml-10 flex gap-8 ">
+          {
+          Object.keys(student).length == 0 && Object.keys(employee).length == 0  && (
+            <div className=" ml-10 flex gap-8 items-center ">
               <div className="capitalize font-semibold text-gray">
                 <h3>
                   internships <i className="ri-arrow-down-s-fill"></i>
@@ -42,12 +56,39 @@ const Nav = () => {
                 </h3>
               </div>
             </div>
-          ) : (
-            ""
-          )}
+          ) }
         </div>
 
         <div className="space-x-4 font-semibold flex items-center text-sm capitalize">
+          {
+          Object.keys(student).length > 0 && (
+            <div className="flex gap-8 items-center ">
+              <div className="capitalize font-semibold text-gray">
+                <h3>
+                  internships <i className="ri-arrow-down-s-fill"></i>
+                </h3>
+              </div>
+              <div className="capitalize font-semibold text-gray">
+                <h3>
+                  Jobs <i className="ri-arrow-down-s-fill"></i>
+                </h3>
+              </div>
+              <div className="capitalize font-semibold text-gray">
+                <h3>
+                  Courses <i className="ri-arrow-down-s-fill"></i>
+                </h3>
+              </div>
+
+
+            <div className="h-7 aspect-square bg-zinc-500 rounded-full overflow-hidden">
+                <img src={student.avatar.url} className="h-full w-full object-cover object-center" alt="" />
+            </div>
+
+              {/* <Link onClick={logoutStudentHandler}>
+                <Button text={"logout"} type={"fill"} />
+              </Link> */}
+            </div>
+          ) }
           {Object.keys(employee).length == 0 &&
           Object.keys(student).length == 0 ? (
             <>
@@ -66,6 +107,7 @@ const Nav = () => {
                 {" "}
                 <Button text={"Employer Sign-up"} type={"fill"} />
               </Link>
+              
             </>
           ) : (
             ""
@@ -96,6 +138,9 @@ const Nav = () => {
               >
                 Post Jobs
               </NavLink>
+              <Link onClick={logoutEmployeeHandler}>
+                <Button text={"logout"} type={"fill"} />
+              </Link>
             </div>
           )}
         </div>

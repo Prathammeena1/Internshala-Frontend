@@ -20,7 +20,14 @@ export const getemployee = () => async (dispatch) => {
 
 export const loginemployee = (employeeInfo)=> async (dispatch)=>{
     const {data} = await axios.post('/employee/signin',employeeInfo);
-    document.cookie = `token=${data.token}`
+    // document.cookie = `token=${data.token}`
+    await dispatch(getemployee())
+}
+
+export const logoutemployee = ()=> async (dispatch)=>{
+    const {data} = await axios.get('/employee/signout');
+    console.log(data);
+    dispatch(setemployee({}));
     await dispatch(getemployee())
 }
 
