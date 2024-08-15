@@ -23,7 +23,7 @@ const Nav = () => {
 
 
   return (
-    <nav className="bg-white shadow fixed w-full z-[2]">
+    <nav className="bg-zinc-900 shadow-zinc-800 shadow fixed w-full z-[2]">
       <div className="container mx-auto px-32 py-4  text-sm flex justify-between items-center">
         <div className="flex gap-4 items-end">
           <div>
@@ -40,17 +40,17 @@ const Nav = () => {
           {
           Object.keys(student).length == 0 && Object.keys(employee).length == 0  && (
             <div className=" ml-10 flex gap-8 items-center ">
-              <div className="capitalize font-semibold text-gray">
+              <div className="capitalize font-semibold text-zinc-400">
                 <h3>
                   internships <i className="ri-arrow-down-s-fill"></i>
                 </h3>
               </div>
-              <div className="capitalize font-semibold text-gray">
+              <div className="capitalize font-semibold text-zinc-400">
                 <h3>
                   Jobs <i className="ri-arrow-down-s-fill"></i>
                 </h3>
               </div>
-              <div className="capitalize font-semibold text-gray">
+              <div className="capitalize font-semibold text-zinc-400">
                 <h3>
                   Courses <i className="ri-arrow-down-s-fill"></i>
                 </h3>
@@ -63,17 +63,17 @@ const Nav = () => {
           {
           Object.keys(student).length > 0 && (
             <div className="flex gap-8 items-center ">
-              <div className="capitalize font-semibold text-gray">
+              <div className="capitalize font-semibold text-zinc-400">
                 <h3>
                   internships <i className="ri-arrow-down-s-fill"></i>
                 </h3>
               </div>
-              <div className="capitalize font-semibold text-gray">
+              <div className="capitalize font-semibold text-zinc-400">
                 <h3>
                   Jobs <i className="ri-arrow-down-s-fill"></i>
                 </h3>
               </div>
-              <div className="capitalize font-semibold text-gray">
+              <div className="capitalize font-semibold text-zinc-400">
                 <h3>
                   Courses <i className="ri-arrow-down-s-fill"></i>
                 </h3>
@@ -92,7 +92,7 @@ const Nav = () => {
           {Object.keys(employee).length == 0 &&
           Object.keys(student).length == 0 ? (
             <>
-              <div className="flex text-gray gap-2 font-normal">
+              <div className="flex text-zinc-400 gap-2 font-normal">
                 <i className="ri-search-2-line"></i>
                 <h3>search</h3>
               </div>

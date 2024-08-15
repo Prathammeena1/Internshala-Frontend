@@ -125,7 +125,7 @@ const Home = () => {
   const {student} = useSelector(state => state.studentSlice)
 
   const navigate = useNavigate()
-  // Object.keys(employee).length > 0 && navigate('/employee/dashboard')
+  Object.keys(employee).length > 0 && navigate('/employee/dashboard')
   
   useEffect(()=>{
     // loginUserJWT()

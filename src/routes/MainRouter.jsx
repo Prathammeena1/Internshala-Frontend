@@ -8,8 +8,13 @@ import RegisterEmployee from "../components/RegisterEmployee";
 import Dashboard from "../components/Dashboard";
 import PostIntership from "../components/PostIntership";
 import PostJob from "../components/PostJob";
+import { useSelector } from "react-redux";
+import NotFoundPage from "../components/NotFoundPage";
 
 const MainRouter = () => {
+
+  const {employee} = useSelector(state => state.employeeSlice)
+  const {student} = useSelector(state => state.studentSlice)
 
 
   return (
@@ -18,20 +23,23 @@ const MainRouter = () => {
         <Route path="login" element={<LoginPage />} />
       </Route>
 
-      {/* students routes */}
+      {/* register routes */}
       <Route path="/register/student" element={<RegisterStudent />} />
-
-
-
-      {/* students routes */}
       <Route path="/register/employee" element={<RegisterEmployee />} />
-      <Route path="/employee/dashboard" element={<Dashboard />} />
-      <Route path="/employee/post/internships" element={<PostIntership />} />
-      <Route path="/employee/post/jobs" element={<PostJob />} />
+
+      {/* student routes */}
 
 
 
-      {/* <Route path="*" element={<NotFoundPage />} /> */}
+
+      {/* employee routes */}
+      {Object.keys(employee).length > 0 && <Route path="/employee/dashboard" element={<Dashboard />} />}
+      {Object.keys(employee).length > 0 && <Route path="/employee/post/internships" element={<PostIntership />} />}
+      {Object.keys(employee).length > 0 && <Route path="/employee/post/jobs" element={<PostJob />} />}
+
+
+
+      <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );
 };

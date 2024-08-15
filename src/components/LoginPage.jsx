@@ -74,16 +74,16 @@ function LoginPage() {
   };
 
   return (
-    <div className="flex items-start pt-[24vh] justify-center min-h-screen bg-gray-100 fixed top-0 h-screen w-full bg-gray/[.5] z-[99]">
-      <div className="w-full max-w-sm p-6 bg-white rounded-lg shadow-md">
-        <Link to="/" className="relative left-[94%] top-[-1vh] text-xl text-gray/[.7] hover:text-gray transition-all ease-in-out">
+    <div className="flex items-start pt-[24vh] backdrop-blur-sm justify-center min-h-screen bg-gray-100 fixed top-0 h-screen w-full bg-black/[.4] z-[99]">
+      <div className="w-full max-w-sm p-6 bg-black/[.8] backdrop-blur-md rounded-lg shadow-md">
+        <Link to="/" className="relative left-[94%] top-[-1vh] text-xl text-zinc-400/[.7] hover:text-zinc-400 transition-all ease-in-out">
           <i className="ri-close-large-line"></i>
         </Link>
 
         <div className="flex mb-4">
           <button
             className={`w-1/2 py-2 text-sm font-medium ${
-              activeTab === "Student" ? "border-b-2 border-blue-500" : "text-gray-500"
+              activeTab === "Student" ? "border-b-2 border-blue-500 text-zinc-300" : "text-zinc-600"
             }`}
             onClick={() => handleTabClick("Student")}
           >
@@ -91,7 +91,7 @@ function LoginPage() {
           </button>
           <button
             className={`w-1/2 py-2 text-sm font-medium ${
-              activeTab === "Employer" ? "border-b-2 border-blue-500" : "text-gray-500"
+              activeTab === "Employer" ? "border-b-2 border-blue-500 text-zinc-300" : "text-zinc-600"
             }`}
             onClick={() => handleTabClick("Employer")}
           >
@@ -102,7 +102,7 @@ function LoginPage() {
         <div>
           {activeTab === "Student" && (
             <div>
-              <button className="w-full py-2 mb-4 text-sm font-medium text-gray rounded border flex justify-center gap-2 items-center">
+              <button className="w-full py-2 mb-4 text-sm font-medium text-zinc-500 hover:text-zinc-400 duration-[.3s] rounded border flex justify-center gap-2 items-center">
                 <img className="h-4" src="http://pluspng.com/img-png/google-logo-png-open-2000.png" alt="" />
                 Login with Google
               </button>
@@ -116,7 +116,7 @@ function LoginPage() {
                   <input
                     type="email"
                     name="email"
-                    className="w-full px-3 py-2 text-sm border rounded focus:outline-none focus:border-primaryHover"
+                    className="w-full px-3 bg-transparent py-2 text-sm border rounded focus:outline-none focus:border-primaryHover"
                     placeholder="Email"
                     value={studentForm.email}
                     onChange={handleStudentChange}
@@ -126,7 +126,7 @@ function LoginPage() {
                   <input
                     type="password"
                     name="password"
-                    className="w-full px-3 py-2 text-sm border rounded focus:outline-none focus:border-primaryHover"
+                    className="w-full px-3 bg-transparent py-2 text-sm border rounded focus:outline-none focus:border-primaryHover"
                     placeholder="Password (Must be at least 6 characters)"
                     value={studentForm.password}
                     onChange={handleStudentChange}
@@ -137,7 +137,7 @@ function LoginPage() {
                     Forgot password?
                   </a>
                 </div>
-                <button className="w-full py-2 text-sm font-medium text-white bg-primary rounded hover:bg-primaryHover">
+                <button className="w-full py-2 text-sm font-medium text-zinc-300 bg-primary rounded hover:bg-primaryHover">
                   Login
                 </button>
               </form>
@@ -157,7 +157,7 @@ function LoginPage() {
                   <input
                     type="email"
                     name="email"
-                    className="w-full px-3 py-2 text-sm border rounded focus:outline-none focus:border-primaryHover"
+                    className="w-full px-3 bg-transparent py-2 text-sm border rounded focus:outline-none focus:border-primaryHover"
                     placeholder="Email"
                     value={employerForm.email}
                     onChange={handleEmployerChange}
@@ -167,7 +167,7 @@ function LoginPage() {
                   <input
                     type="password"
                     name="password"
-                    className="w-full px-3 py-2 text-sm border rounded focus:outline-none focus:border-primaryHover"
+                    className="w-full px-3 bg-transparent py-2 text-sm border rounded focus:outline-none focus:border-primaryHover"
                     placeholder="Password (Must be at least 6 characters)"
                     value={employerForm.password}
                     onChange={handleEmployerChange}
@@ -178,7 +178,7 @@ function LoginPage() {
                     Forgot password?
                   </a>
                 </div>
-                <button className="w-full py-2 text-sm font-medium text-white bg-primary rounded hover:bg-primaryHover">
+                <button className="w-full py-2 text-sm font-medium text-zinc-300 bg-primary rounded hover:bg-primaryHover">
                   Login
                 </button>
               </form>

@@ -35,7 +35,7 @@ function App() {
 
 
   return (
-    <div className="App tracking-tighter text-darkGray">
+    <div className="App tracking-tighter text-zinc-200 bg-zinc-900">
       <Nav />
       <MainRouter/>
     </div>
