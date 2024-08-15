@@ -59,7 +59,7 @@ const Dashboard = () => {
 
   return (
     <div className="p-8 pt-24 bg-gray-100 min-h-screen px-32">
-      <div className="bg-white shadow-lg rounded-lg">
+      <div className="shadow shadow-zinc-800 rounded-lg">
         <div className="flex justify-between items-center border-b p-4">
           <div className="flex space-x-8">
             <button

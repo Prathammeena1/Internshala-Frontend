@@ -85,12 +85,12 @@ const PostInternship = () => {
 
   return (
     <div className="pt-20 pb-10">
-      <h1 className="text-5xl font-bold text-darkGray text-center flex flex-col items-end w-fit mx-auto mt-4">
+      <h1 className="text-5xl font-bold text-zinc-300 text-center flex flex-col items-end w-fit mx-auto mt-4">
         <span>Post a new Internship</span>
         <img className="w-[18vw]" src="/images/underline.png" alt="" />
       </h1>
 
-      <div className="w-full max-w-xl p-6 bg-white rounded-lg drop-shadow-[0_35px_35px_rgba(0,0,0,0.1)] mx-auto">
+      <div className="w-full max-w-xl p-6 shadow shadow-zinc-800 rounded-lg drop-shadow-[0_35px_35px_rgba(0,0,0,0.1)] mx-auto">
         <form onSubmit={handleSubmit} encType="multipart/form-data">
           <div className="mb-4">
             <span className="text-sm capitalize font-medium"> Profile </span>
@@ -99,7 +99,7 @@ const PostInternship = () => {
               maxLength={20}
               type="text"
               name="profile"
-              className="w-full px-3 py-2 text-sm border border-gray/[.5] rounded focus:outline-none focus:border-primaryHover"
+              className="w-full px-3 bg-transparent py-2 text-sm border border-gray/[.5] rounded focus:outline-none focus:border-primaryHover"
               placeholder="Profile"
               value={formData.profile}
               onChange={handleChange}
@@ -111,7 +111,7 @@ const PostInternship = () => {
               required
               type="file"
               name="image"
-              className="w-full px-3 py-2 text-sm border border-gray/[.5] rounded focus:outline-none focus:border-primaryHover"
+              className="w-full px-3 bg-transparent py-2 text-sm border border-gray/[.5] rounded focus:outline-none focus:border-primaryHover"
               placeholder="Profile"
               onChange={handleChange}
             />
@@ -124,7 +124,7 @@ const PostInternship = () => {
             maxLength={10}
               type="date"
               name="from"
-              className="w-full px-3 py-2 text-sm border border-gray/[.5] rounded focus:outline-none focus:border-primaryHover"
+              className="w-full px-3 bg-transparent py-2 text-sm border border-gray/[.5] rounded focus:outline-none focus:border-primaryHover"
               value={formData.from}
               onChange={handleChange}
             />
@@ -136,7 +136,7 @@ const PostInternship = () => {
             maxLength={10}
               type="date"
               name="to"
-              className="w-full px-3 py-2 text-sm border border-gray/[.5] rounded focus:outline-none focus:border-primaryHover"
+              className="w-full px-3 bg-transparent py-2 text-sm border border-gray/[.5] rounded focus:outline-none focus:border-primaryHover"
               value={formData.to}
               onChange={handleChange}
             />
@@ -149,7 +149,7 @@ const PostInternship = () => {
             maxLength={15}
               type="text"
               name="duration"
-              className="w-full px-3 py-2 text-sm border border-gray/[.5] rounded focus:outline-none focus:border-primaryHover"
+              className="w-full px-3 bg-transparent py-2 text-sm border border-gray/[.5] rounded focus:outline-none focus:border-primaryHover"
               placeholder="Duration"
               value={formData.duration}
               onChange={handleChange}
@@ -162,7 +162,7 @@ const PostInternship = () => {
             maxLength={100}
               type="text"
               name="responsibility"
-              className="w-full px-3 py-2 text-sm border border-gray/[.5] rounded focus:outline-none focus:border-primaryHover"
+              className="w-full px-3 bg-transparent py-2 text-sm border border-gray/[.5] rounded focus:outline-none focus:border-primaryHover"
               placeholder="Responsibility"
               value={formData.responsibility}
               onChange={handleChange}
@@ -172,7 +172,7 @@ const PostInternship = () => {
             <span className="text-sm capitalize font-medium"> Stipend Status </span>
             <select
               name="status"
-              className="w-full px-3 py-2 text-sm border border-gray/[.5] rounded focus:outline-none focus:border-primaryHover"
+              className="w-full px-3 bg-transparent py-2 text-sm border border-gray/[.5] rounded focus:outline-none focus:border-primaryHover"
               value={formData.stipend.status}
               onChange={handleChange}
             >
@@ -189,7 +189,7 @@ const PostInternship = () => {
               type="number"
               name="amount"
               min={1}
-              className="w-full px-3 py-2 text-sm border border-gray/[.5] rounded focus:outline-none focus:border-primaryHover"
+              className="w-full px-3 bg-transparent py-2 text-sm border border-gray/[.5] rounded focus:outline-none focus:border-primaryHover"
               placeholder="Stipend Amount"
               value={formData.amount}
               onChange={handleChange}
@@ -202,7 +202,7 @@ const PostInternship = () => {
             maxLength={100}
               type="text"
               name="perks"
-              className="w-full px-3 py-2 text-sm border border-gray/[.5] rounded focus:outline-none focus:border-primaryHover"
+              className="w-full px-3 bg-transparent py-2 text-sm border border-gray/[.5] rounded focus:outline-none focus:border-primaryHover"
               placeholder="Perks"
               value={formData.perks}
               onChange={handleChange}
@@ -215,7 +215,7 @@ const PostInternship = () => {
             maxLength={100}
               type="text"
               name="assessment"
-              className="w-full px-3 py-2 text-sm border border-gray/[.5] rounded focus:outline-none focus:border-primaryHover"
+              className="w-full px-3 bg-transparent py-2 text-sm border border-gray/[.5] rounded focus:outline-none focus:border-primaryHover"
               placeholder="Assessment"
               value={formData.assessment}
               onChange={handleChange}

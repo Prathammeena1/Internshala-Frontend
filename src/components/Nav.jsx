@@ -80,13 +80,13 @@ const Nav = () => {
               </div>
 
 
-            <div className="h-7 aspect-square bg-zinc-500 rounded-full overflow-hidden">
-                <img src={student.avatar.url} className="h-full w-full object-cover object-center" alt="" />
+            <div className="h-7 aspect-square bg-zinc-500 rounded-full relative">
+                <img src={student.avatar.url} className="h-full w-full rounded-full object-cover object-center" alt="" />
+                <div className="absolute bg-zinc-700 top-[100%] flex flex-col gap-[1.1px] w-[150px] items-center justify-between left-[50%] translate-x-[-50%] overflow-hidden rounded-sm">
+                  <Link onClick={logoutStudentHandler} className="capitalize text-base font-light bg-zinc-800 px-4 py-2 w-full hover:bg-zinc-900 hover:text-primary duration-[.3s]">log out</Link>
+                </div>
             </div>
 
-              {/* <Link onClick={logoutStudentHandler}>
-                <Button text={"logout"} type={"fill"} />
-              </Link> */}
             </div>
           ) }
           {Object.keys(employee).length == 0 &&
