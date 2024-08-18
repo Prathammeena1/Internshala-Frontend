@@ -14,13 +14,22 @@ const PostJob = () => {
     preferences: "",
     salary: 0,
     perks: "",
-    assessment: ""
+    assessment: "",
+    image: null, // Change to null initially
   });
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value, files } = e.target;
 
     if (name === 'salary' && value.length > 10 || name === 'openings' && value.length > 10) {
+      return;
+    }
+
+    if (name === 'image') {
+      setFormData({
+        ...formData,
+        image: files[0], // Store the file object
+      });
       return;
     }
 
@@ -35,11 +44,19 @@ const PostJob = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const data = new FormData();
+    Object.keys(formData).forEach((key) => {
+        data.append(key, formData[key]);
+    });
+
+
     try {
-      dispatch(createjob(formData));
-      navigate('/employee/jobs'); // Redirect to jobs page after posting
+      dispatch(createjob(data)); // Pass the FormData object to the action
+      // console.log(formData )
+      navigate("/");
     } catch (error) {
-      console.error('Error posting job:', error);
+      console.error("Error posting internship:", error);
     }
   };
 
@@ -50,7 +67,7 @@ const PostJob = () => {
         <img className="w-[18vw]" src="/images/underline.png" alt="" />
       </h1>
 
-      <div className="w-full max-w-xl p-6 bg-white rounded-lg drop-shadow-[0_35px_35px_rgba(0,0,0,0.1)] mx-auto">
+      <div className="w-full max-w-xl p-6 bg-zinc-900 shadow shadow-zinc-800 rounded-lg drop-shadow-[0_35px_35px_rgba(0,0,0,0.1)] mx-auto">
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <span className="text-sm capitalize font-medium"> Title </span>
@@ -59,9 +76,20 @@ const PostJob = () => {
               maxLength={20}
               type="text"
               name="title"
-              className="w-full px-3 py-2 text-sm border border-gray/[.5] rounded focus:outline-none focus:border-primaryHover"
+              className="w-full px-3 bg-transparent py-2 text-sm border border-gray/[.5] rounded focus:outline-none focus:border-primaryHover"
               placeholder="Title"
               value={formData.title}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="mb-4">
+            <span className="text-sm capitalize font-medium"> Image </span>
+            <input
+              required
+              type="file"
+              name="image"
+              className="w-full px-3 bg-transparent py-2 text-sm border border-gray/[.5] rounded focus:outline-none focus:border-primaryHover"
+              placeholder="Profile"
               onChange={handleChange}
             />
           </div>
@@ -69,7 +97,7 @@ const PostJob = () => {
             <span className="text-sm capitalize font-medium"> Type </span>
             <select
               name="type"
-              className="w-full px-3 py-2 text-sm border border-gray/[.5] rounded focus:outline-none focus:border-primaryHover"
+              className="w-full px-3 bg-transparent py-2 text-sm border border-gray/[.5] rounded focus:outline-none focus:border-primaryHover"
               value={formData.type}
               onChange={handleChange}
             >
@@ -85,7 +113,7 @@ const PostJob = () => {
               type="number"
               name="openings"
               min={1}
-              className="w-full px-3 py-2 text-sm border border-gray/[.5] rounded focus:outline-none focus:border-primaryHover"
+              className="w-full px-3 bg-transparent py-2 text-sm border border-gray/[.5] rounded focus:outline-none focus:border-primaryHover"
               placeholder="Openings"
               value={formData.openings}
               onChange={handleChange}
@@ -98,7 +126,7 @@ const PostJob = () => {
               maxLength={100}
               type="text"
               name="skills"
-              className="w-full px-3 py-2 text-sm border border-gray/[.5] rounded focus:outline-none focus:border-primaryHover"
+              className="w-full px-3 bg-transparent py-2 text-sm border border-gray/[.5] rounded focus:outline-none focus:border-primaryHover"
               placeholder="Skills"
               value={formData.skills}
               onChange={handleChange}
@@ -110,7 +138,7 @@ const PostJob = () => {
               required
               maxLength={500}
               name="description"
-              className="w-full px-3 py-2 text-sm border border-gray/[.5] rounded focus:outline-none focus:border-primaryHover"
+              className="w-full px-3 bg-transparent py-2 text-sm border border-gray/[.5] rounded focus:outline-none focus:border-primaryHover"
               placeholder="Description"
               value={formData.description}
               onChange={handleChange}
@@ -122,7 +150,7 @@ const PostJob = () => {
               required
               maxLength={500}
               name="preferences"
-              className="w-full px-3 py-2 text-sm border border-gray/[.5] rounded focus:outline-none focus:border-primaryHover"
+              className="w-full px-3 bg-transparent py-2 text-sm border border-gray/[.5] rounded focus:outline-none focus:border-primaryHover"
               placeholder="Preferences"
               value={formData.preferences}
               onChange={handleChange}
@@ -135,7 +163,7 @@ const PostJob = () => {
               type="number"
               name="salary"
               min={0}
-              className="w-full px-3 py-2 text-sm border border-gray/[.5] rounded focus:outline-none focus:border-primaryHover"
+              className="w-full px-3 bg-transparent py-2 text-sm border border-gray/[.5] rounded focus:outline-none focus:border-primaryHover"
               placeholder="Salary"
               value={formData.salary}
               onChange={handleChange}
@@ -147,7 +175,7 @@ const PostJob = () => {
               required
               maxLength={100}
               name="perks"
-              className="w-full px-3 py-2 text-sm border border-gray/[.5] rounded focus:outline-none focus:border-primaryHover"
+              className="w-full px-3 bg-transparent py-2 text-sm border border-gray/[.5] rounded focus:outline-none focus:border-primaryHover"
               placeholder="Perks"
               value={formData.perks}
               onChange={handleChange}
@@ -159,7 +187,7 @@ const PostJob = () => {
               required
               maxLength={100}
               name="assessment"
-              className="w-full px-3 py-2 text-sm border border-gray/[.5] rounded focus:outline-none focus:border-primaryHover"
+              className="w-full px-3 bg-transparent py-2 text-sm border border-gray/[.5] rounded focus:outline-none focus:border-primaryHover"
               placeholder="Assessment"
               value={formData.assessment}
               onChange={handleChange}

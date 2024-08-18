@@ -118,8 +118,14 @@ const Nav = () => {
                   ref={menu}
                   onMouseEnter={showMenu}
                   onMouseLeave={hideMenu}
-                  className="menu absolute hidden opacity-0 bg-zinc-700 top-[100%] flex flex-col gap-[1.1px] w-[150px] items-center justify-between left-[50%] translate-x-[-50%] overflow-hidden rounded-sm"
+                  className="menu absolute hidden opacity-0 bg-zinc-700 top-[150%] flex flex-col gap-[1.1px] w-[200px] items-center justify-between left-[50%] translate-x-[-50%] overflow-hidden rounded-sm"
                 >
+                  <Link
+                  
+                    className="capitalize text-base font-light bg-zinc-800 px-4 py-2 w-full hover:bg-zinc-900 hover:text-primary duration-[.3s]"
+                  >
+                    My Applications
+                  </Link>
                   <Link
                     onClick={logoutStudentHandler}
                     className="capitalize text-base font-light bg-zinc-800 px-4 py-2 w-full hover:bg-zinc-900 hover:text-primary duration-[.3s]"

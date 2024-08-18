@@ -24,7 +24,6 @@ export const createinternship = (internshipInfo)=> async (dispatch)=>{
             "Content-Type": "multipart/form-data", // Ensure correct content type
           },
     });
-    document.cookie = `token=${data.token}`
     await dispatch(getinternships())
     console.log(data);
 }
