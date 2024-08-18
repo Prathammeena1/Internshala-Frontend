@@ -4,7 +4,7 @@ const Poster = ({url}) => {
   return (
     <div className="flex-shrink-0">
       <img
-        className="w-[25vw]"
+        className="w-[25vw] rounded-3xl"
         src={url}
         alt=""
       />

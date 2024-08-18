@@ -10,7 +10,7 @@ export const getjobs = () => async (dispatch) => {
         if (data.jobs) {
             dispatch(setjob(data.jobs));
         }
-        console.log(data);
+        // console.log(data);
     } catch (error) {
         console.error('Error fetching job data:', error);
     }

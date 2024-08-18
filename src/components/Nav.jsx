@@ -51,7 +51,7 @@ const Nav = () => {
 
 
   return (
-    <nav className="bg-zinc-900 shadow-zinc-800 shadow fixed w-full z-[2]">
+    <nav className="bg-zinc-900/[.6] backdrop-blur-lg shadow-zinc-800 shadow fixed top-[-1px] w-full z-[2]">
       <div className="container mx-auto px-32 py-4  text-sm flex justify-between items-center">
         <div className="flex gap-4 items-end">
           <div>

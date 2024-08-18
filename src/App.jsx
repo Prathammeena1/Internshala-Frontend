@@ -36,7 +36,7 @@ function App() {
 
 
   return (
-    <div className="App tracking-tighter text-zinc-200 bg-zinc-900">
+    <div className="App tracking-tighter text-zinc-200 bg-zinc-900 overflow-hidden">
       <Nav />
       <MainRouter/>
     </div>
