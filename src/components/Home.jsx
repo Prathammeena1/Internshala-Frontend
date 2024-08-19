@@ -149,7 +149,7 @@ const Home = () => {
           {internships && (
             <div className="noScrollBar flex overflow-x-auto gap-5 items-center w-[78vw] mx-auto">
               {internships.map((d, i) => (
-                <Link to={`/job/detail/${d._id}`}>
+                <Link to={`/internship/detail/${d._id}`}>
                 <Poster key={i} url={d.image.url} />
                 </Link>
               ))}

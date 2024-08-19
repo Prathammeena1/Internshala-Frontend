@@ -10,6 +10,7 @@ import PostIntership from "../components/PostIntership";
 import PostJob from "../components/PostJob";
 import { useSelector } from "react-redux";
 import NotFoundPage from "../components/NotFoundPage";
+import InternshipDetail from "../components/InternshipDetail";
 
 const MainRouter = () => {
 
@@ -20,7 +21,7 @@ const MainRouter = () => {
   return (
     <Routes>
       <Route path="/" element={<HomePage />}>
-        <Route path="login" element={<LoginPage />} />
+        <Route path="/login" element={<LoginPage />} />
       </Route>
 
       {/* register routes */}
@@ -28,6 +29,7 @@ const MainRouter = () => {
       <Route path="/register/employee" element={<RegisterEmployee />} />
 
       {/* student routes */}
+        <Route path="/internship/detail/:id" element={<InternshipDetail />} />
 
 
 
