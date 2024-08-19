@@ -54,16 +54,16 @@ const Nav = () => {
     <nav className="bg-zinc-900/[.8] backdrop-blur-lg shadow-zinc-800 shadow fixed top-[-1px] w-full z-[2]">
       <div className="container mx-auto px-32 py-4  text-sm flex justify-between items-center">
         <div className="flex gap-4 items-end">
-          <div>
+          {/* <div>
             <i className="ri-menu-2-line xl:hidden"></i>
-          </div>
-          <div className="h-[36px]">
+          </div> */}
+          <Link to={'/'} className="h-[36px]">
             <img
               className="h-full w-full object-cover"
               src="/images/logo.png"
               alt=""
             />
-          </div>
+          </Link>
 
           {Object.keys(student).length == 0 &&
             Object.keys(employee).length == 0 && (
@@ -76,11 +76,6 @@ const Nav = () => {
                 <div className="capitalize font-semibold text-zinc-400">
                   <h3>
                     Jobs <i className="ri-arrow-down-s-fill"></i>
-                  </h3>
-                </div>
-                <div className="capitalize font-semibold text-zinc-400">
-                  <h3>
-                    Courses <i className="ri-arrow-down-s-fill"></i>
                   </h3>
                 </div>
               </div>
@@ -100,11 +95,7 @@ const Nav = () => {
                   Jobs <i className="ri-arrow-down-s-fill"></i>
                 </h3>
               </div>
-              <div className="capitalize font-semibold text-zinc-400">
-                <h3>
-                  Courses <i className="ri-arrow-down-s-fill"></i>
-                </h3>
-              </div>
+            
 
               <div className="h-7 aspect-square bg-zinc-500 rounded-full relative">
                 <img

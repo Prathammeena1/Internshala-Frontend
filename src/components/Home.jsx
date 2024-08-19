@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 // import HomepageS1 from "./HomepageS1";
 // import HomepageS2 from "./HomepageS2";
 // import HomepageS3 from "./HomepageS3";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getstudent } from "../store/actions/studentActions";
 import axios from "../utils/axios";
@@ -149,7 +149,9 @@ const Home = () => {
           {internships && (
             <div className="noScrollBar flex overflow-x-auto gap-5 items-center w-[78vw] mx-auto">
               {internships.map((d, i) => (
+                <Link to={`/job/detail/${d._id}`}>
                 <Poster key={i} url={d.image.url} />
+                </Link>
               ))}
             </div>
           )}
