@@ -10,7 +10,7 @@ export const getinternships = () => async (dispatch) => {
         if (data.internships) {
             dispatch(setinternship(data.internships));
 
-            // console.log(data.internships)
+            console.log(data.internships)
         }
         // console.log(data);
     } catch (error) {

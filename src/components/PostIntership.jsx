@@ -63,20 +63,20 @@ const PostInternship = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const data = new FormData();
-    Object.keys(formData).forEach((key) => {
-      if (key === "stipend") {
-        data.append("stipendStatus", formData.stipend.status);
-        data.append("stipendAmount", formData.stipend.amount);
-      } else {
-        data.append(key, formData[key]);
-      }
-    });
+    // const data = new FormData();
+    // Object.keys(formData).forEach((key) => {
+    //   if (key === "stipend") {
+    //     data.append("stipendStatus", formData.stipend.status);
+    //     data.append("stipendAmount", formData.stipend.amount);
+    //   } else {
+    //     data.append(key, formData[key]);
+    //   }
+    // });
 
 
     try {
-      dispatch(createinternship(data)); // Pass the FormData object to the action
-      // console.log(data)
+      dispatch(createinternship(formData)); // Pass the FormData object to the action
+      // console.log(formData)
       navigate("/");
     } catch (error) {
       console.error("Error posting internship:", error);
@@ -116,6 +116,21 @@ const PostInternship = () => {
               onChange={handleChange}
             />
           </div>
+
+          <div className="mb-4">
+            <span className="text-sm capitalize font-medium"> Number of openings </span>
+            <input
+            maxLength={3}
+              type="number"
+              name="openings"
+              min={1}
+              className="w-full px-3 bg-transparent py-2 text-sm border border-gray/[.5] rounded focus:outline-none focus:border-primaryHover"
+              placeholder="Stipend Amount"
+              value={formData.openings}
+              onChange={handleChange}
+            />
+          </div>
+
           <div className="flex gap-2 items-center">
           <div className="mb-4 w-1/2">
             <span className="text-sm capitalize font-medium"> From </span>
@@ -165,6 +180,19 @@ const PostInternship = () => {
               className="w-full px-3 bg-transparent py-2 text-sm border border-gray/[.5] rounded focus:outline-none focus:border-primaryHover"
               placeholder="Responsibility"
               value={formData.responsibility}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="mb-4">
+            <span className="text-sm capitalize font-medium"> Skills </span>
+            <textarea
+            required
+            maxLength={100}
+              type="text"
+              name="skills"
+              className="w-full px-3 bg-transparent py-2 text-sm border border-gray/[.5] rounded focus:outline-none focus:border-primaryHover"
+              placeholder="Responsibility"
+              value={formData.skills}
               onChange={handleChange}
             />
           </div>
