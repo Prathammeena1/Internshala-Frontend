@@ -38,7 +38,7 @@ const InternshipDetail = () => {
               to={internship.to}
               duration={internship.duration}
               logo={internship.image.url}
-              applicants={[internship.students]}
+              applicants={internship.students}
               responsibility={internship.responsibility}
               skills={internship.skills}
               perks={internship.perks}

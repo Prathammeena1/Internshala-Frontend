@@ -27,23 +27,41 @@ const PostInternship = () => {
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
-
+  
     if (name === 'status') {
       amountTag.current.style.display = 'initial';
-    }
-    if (name === 'status' && value === 'Unpaid') {
-      amountTag.current.style.display = 'none';
-    }
-    if (name === 'status' || name === 'amount') {
       setFormData({
         ...formData,
         stipend: {
           ...formData.stipend,
-          [name]: value,
+          status: value,
+        },
+      });
+      if (value === 'Unpaid') {
+        amountTag.current.style.display = 'none';
+        setFormData({
+          ...formData,
+          stipend: {
+            ...formData.stipend,
+            status: value,
+            amount: 0,
+          },
+        });
+      }
+      return;
+    }
+  
+    if (name === 'amount') {
+      setFormData({
+        ...formData,
+        stipend: {
+          ...formData.stipend,
+          amount: value,
         },
       });
       return;
     }
+  
     if (name === 'image') {
       setFormData({
         ...formData,
@@ -51,37 +69,39 @@ const PostInternship = () => {
       });
       return;
     }
+  
     setFormData({
       ...formData,
       [name]: value,
     });
   };
+  
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // const data = new FormData();
-    // Object.keys(formData).forEach((key) => {
-    //   if (key === "stipend") {
-    //     data.append("stipendStatus", formData.stipend.status);
-    //     data.append("stipendAmount", formData.stipend.amount);
-    //   } else {
-    //     data.append(key, formData[key]);
-    //   }
-    // });
-
-
+  
+    const data = new FormData();
+    Object.keys(formData).forEach((key) => {
+      if (key === "stipend") {
+        data.append("stipend.status", formData.stipend.status);
+        if (formData.stipend.status !== "Unpaid") {
+          data.append("stipend.amount", formData.stipend.amount);
+        }
+      } else {
+        data.append(key, formData[key]);
+      }
+    });
+  
     try {
-      dispatch(createinternship(formData)); // Pass the FormData object to the action
-      // console.log(formData)
-      navigate("/");
+      dispatch(createinternship(data)); // Pass the FormData object to the action
     } catch (error) {
       console.error("Error posting internship:", error);
     }
   };
+  
 
   return (
     <div className="pt-20 pb-10">

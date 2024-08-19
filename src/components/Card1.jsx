@@ -84,7 +84,7 @@ const Card1 = ({
             {" "}
             <i className="ri-wallet-2-line"></i> Stipend
           </div>
-          <span className=" tracking-wide">{stipend}</span>
+          <span className=" tracking-wide">{stipend.amount && '₹' } {stipend.amount || stipend.status}</span>
         </div>
       </div>
 

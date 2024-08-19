@@ -149,8 +149,8 @@ const Home = () => {
           {internships && (
             <div className="noScrollBar flex overflow-x-auto gap-5 items-center w-[78vw] mx-auto">
               {internships.map((d, i) => (
-                <Link to={`/internship/detail/${d._id}`}>
-                <Poster key={i} url={d.image.url} />
+                <Link key={i} to={`/internship/detail/${d._id}`}>
+                <Poster url={d.image.url} />
                 </Link>
               ))}
             </div>
@@ -158,7 +158,7 @@ const Home = () => {
         </div>
 
         {/* Trending job */}
-        <div className="HomepageS1 my-24 px-32">
+        {/* <div className="HomepageS1 my-24 px-32">
           <h2 className="text-3xl font-semibold text-zinc-200 text-center text-gray-600 mb-8">
             Trending jobs on Internshala 🔥
           </h2>
@@ -170,7 +170,7 @@ const Home = () => {
               ))}
             </div>
           )}
-        </div>
+        </div> */}
 
         {/* <HomepageS1 data={internships} />
         <HomepageS1 data={jobs} /> */}
