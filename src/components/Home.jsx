@@ -9,7 +9,6 @@ import axios from "../utils/axios";
 import { getemployee } from "../store/actions/employeeActions";
 import Poster from "./Poster";
 
-
 const Home = () => {
   // const [internships, setinternships] = useState([
   //   {
@@ -47,7 +46,7 @@ const Home = () => {
   const { internships } = useSelector((state) => state.internshipSlice);
   const { jobs } = useSelector((state) => state.jobSlice);
 
-  console.log(jobs);
+  // console.log(jobs);
 
   // const [jobs, setjobs] = useState([
   //   {
@@ -118,6 +117,7 @@ const Home = () => {
 
   const { employee } = useSelector((state) => state.employeeSlice);
   const { student } = useSelector((state) => state.studentSlice);
+  // console.log(student)
 
   const navigate = useNavigate();
   Object.keys(employee).length > 0 && navigate("/employee/dashboard");
@@ -131,11 +131,14 @@ const Home = () => {
       <main className="container mx-auto pt-12">
         <Outlet />
 
-
-          <h1 className="text-5xl my-20 font-bold text-zinc-200 text-center mb-8 flex flex-col items-center">
-            <span>Make your dream career a reality</span>
-            <img className="w-[20vw]" src="/images/underline.png" alt="" />
-          </h1>
+        <h1 className="text-5xl my-20 font-bold text-zinc-200 text-center mb-8 flex flex-col items-center">
+          {Object.keys(student).length > 0 && <div className="text-3xl font-semibold text-zinc-200 text-center text-gray-600 mb-8">
+            Hi, {student.firstname} ! 👋
+          </div> }
+          
+          <span>Make your dream career a reality</span>
+          <img className="w-[20vw]" src="/images/underline.png" alt="" />
+        </h1>
 
         {/* Trending internship */}
         <div className="HomepageS1 px-32">
